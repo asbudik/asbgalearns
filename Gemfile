@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.5'
+gem 'rails', '4.2.10'
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '0.17.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -48,7 +48,7 @@ gem 'aws-sdk'
 gem 'rufus-scheduler'
 
 gem 'twitter'
-gem 'twitter-text'
+gem 'twitter-text', '1.9.2'
 
 gem 'nokogiri'
 gem 'awesome_print'
@@ -63,4 +63,3 @@ gem 'crack'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
