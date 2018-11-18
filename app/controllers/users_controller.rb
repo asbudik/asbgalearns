@@ -22,12 +22,14 @@ class UsersController < ApplicationController
     if !new_file_path.blank?
       key = Time.now.to_time.to_i
 
-      new_bucket = S3_CLIENT.buckets['gadashboard']
-      new_object = new_bucket.objects[key.to_s]
+      # TODO: need to update this to reflect new aws-sdk-s3 interface
+      # we just need to overwrite old existing object with this one
+      # new_bucket = S3_CLIENT.buckets['gadashboard']
+      # new_object = new_bucket.objects[key.to_s]
 
-      new_object.write(Pathname.new(new_file_path['image_url'].tempfile.path))
+      # new_object.write(Pathname.new(new_file_path['image_url'].tempfile.path))
 
-      new_user[:image_url] = new_object.public_url.to_s
+      # new_user[:image_url] = new_object.public_url.to_s
     else
       new_user[:image_url] = 'https://s3-us-west-1.amazonaws.com/gadashboard/profile-1.jpg'
     end
