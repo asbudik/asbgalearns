@@ -1,10 +1,10 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
-    email Faker::Internet.email
-    pswrd = Faker::Lorem.words(4).join("")
+    email FFaker::Internet.email
+    pswrd = FFaker::Lorem.words(4).join("")
     password pswrd
     password_confirmation pswrd
-    first_name Faker::Name.first_name
-    last_name Faker::Name.last_name
+    first_name FFaker::Name.first_name
+    last_name FFaker::Name.last_name
   end
 end

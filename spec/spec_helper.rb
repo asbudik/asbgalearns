@@ -16,7 +16,7 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require "factory_bot_rails"
 RSpec.configure do |config|
-  config.include  FactoryGirl::Syntax::Methods
+  config.include  FactoryBot::Syntax::Methods
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
