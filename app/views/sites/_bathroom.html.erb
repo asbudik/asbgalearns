@@ -1,0 +1,12 @@
+<h3 class="header-center">Current Weather</h3>
+<div class="weather">
+  <p class="temp"><%= @temp  %>&deg;   <img src="http://openweathermap.org/img/w/<%= @weather["weather"][0]["icon"]  %>.png"/>
+</p>
+  <p><%= @weather["weather"][0]["main"]  %></p>
+
+</div>
+<div class="user-center">
+  <a href="/users" class="btn btn-default btn-md">See All Users</a>
+  <a href="/users/<%= @current_user.id %>/edit" class="btn btn-default btn-md">Edit Your Profile</a>
+  <a href="/logout" class="btn btn-danger btn-md"> Logout </a>
+</div>

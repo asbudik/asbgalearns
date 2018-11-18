@@ -1,0 +1,10 @@
+<h3 class="header-center">Shoutouts from <%= @user.first_name %> <%= @user.last_name %></h3>
+<ul id="shoutout_container">
+  <% @shoutouts_all.each do |shoutout| %>
+    <li><strong><%= User.find_by_id(shoutout.user_id).first_name %>:</strong> <%= shoutout.content %></li>
+  <% end %>
+</ul>
+<div class="userstar"></div>
+<span class="usershoutouts"><%= @user_shoutouts %></span>
+
+

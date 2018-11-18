@@ -1,0 +1,49 @@
+
+
+<h3 class="header-center">Shoutouts</h3>
+<ul id="shoutout_container">
+
+<div class="shouttext">
+  <% @shoutouts_all.each do |shoutout, i| %>
+    <li class="singleshout"><strong><%= User.find_by_id(shoutout.user_id).first_name %>:</strong> <%= shoutout.content %>
+    <%= form_for @like, :html => { :"data-shoutout-id" => shoutout.id, :"data-like-id" => shoutout.likes.order(created_at: :asc).last.id } do |f| %>
+    <span class="likenumber likes<%= shoutout.likes.order(created_at: :asc).last.id %> "><%= shoutout.likes.order(created_at: :asc).last.likes %></span>
+
+    <% if session[:id] != nil %>
+      <% if shoutout.user_id != session[:id] %>
+        <% if shoutout.likes.order(created_at: :asc).last.user_likes_id != session[:id] %>
+        <input class="likebutton like-button<%= shoutout.likes.order(created_at: :asc).last.id %>" name="commit" src="http://www.mricons.com/store/png/117103_34617_128_favorite_star_icon.png" type="image" value="Like">
+       <% else %>
+       <div class="alreadybutton"></div>
+       <% end %>
+       <% else %>
+       <div class="alreadybutton"></div>
+
+       <% end %>
+       <% else %>
+       <div class="alreadybutton"></div>
+       <% end %>
+      <% end %>
+
+    <% end %>
+  </li>
+  </div>
+</ul>
+
+<% if session[:id] != nil %>
+<%= form_for @shoutout do |f| %>
+<div class="form-group">
+  <%= f.text_field :content, class: "form-control", placeholder: "Leave a shoutout" %>
+</div>
+<div class="form-group">
+  <%= f.submit "Shoutout", class: "form-control shoutoutsub btn btn-danger" %>
+  </div>
+<% end %>
+<% else %>
+  <div class="text-center shout-hold">
+    <h4>Want to leave a shoutout?</h4>
+    <p><a data-toggle="modal" data-target="#signupModal" href="">SIGN UP</a> or <a data-toggle="modal" data-target="#loginModal" href="">LOG IN</a> now!</p>
+  </div>
+<% end %>
+
+

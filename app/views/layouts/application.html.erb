@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GA SF - 501 Folsom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="favicon path" />
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+
+
+
+</head>
+<body>
+  <div class="container-fluid">
+
+    <div class="row header">
+      <div class="col-sm-10 col-sm-offset-1">
+        <div class="row">
+          <div class="col-sm-8 col-xs-12">
+            <h1><a href="/">GA Dashboard</a></h1>
+            
+          </div>
+          <% flash.each do |k, v| %>
+              <span id="<%= k %>"><%= v %></span>
+            <% end %>
+          
+          <div class="col-sm-4 col-xs-12">
+              <span class="right loggedin">
+               <% if session[:id] == nil %>
+                <div>
+
+                  <div class="pic-container">
+                    <img class="profile-pic" id="image" src="https://s3-us-west-1.amazonaws.com/gadashboard/profile-1.jpg">
+                  </div>
+                </div>
+                <div>
+                    <h4>Welcome, Guest!</h4>
+                </div>
+                </span>
+              <% else %>
+                <div>
+                  <div class="pic-container">
+                    <img class="profile-pic" src="<%= @current_user.image_url %>">
+                  </div>
+                </div>
+                <div>
+                    <h4>Welcome, <a class="username" href="/users/<%= @current_user.id %>"><%= @current_user.first_name %></a>!</h4>
+                  <a href="/users/<%= @current_user.id %>/edit" class="btn btn-default btn-sm">Edit Profile</a>
+                  <a href="/logout" class="btn btn-danger btn-sm"> Logout </a>
+                </div>
+                </span>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" id="main-content">
+          <%= yield %>
+    </div>
+
+    <div class="row footer">
+      <div class="col-sm-10 col-sm-offset-1">
+          <a href="/">Home</a><span>|</span><a href="/users">See All Users</a><span>|</span><a href="/about">About</a>
+        </div>
+    </div>
+
+  </div>
+
+
+</body>
+</html>

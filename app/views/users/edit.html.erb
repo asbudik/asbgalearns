@@ -1,0 +1,43 @@
+<div class="col-sm-6 col-sm-offset-3">
+
+  <div class="edit-form row">
+    <div class="col-sm-5">
+      <h2>Edit Your Profile</h2>
+    </div>
+    <div class="col-sm-7">
+      <%= form_for @current_user, url: {controller: 'users', action: "update", id: @current_user.id}, html: {method: "put"} do |f| %>
+        <div class="form-group">
+        <%= f.text_field :first_name, value: @current_user.first_name, autofocus: true, class: "form-control" %>
+        </div>
+        <div class="form-group">
+        <%= f.text_field :last_name, value: @current_user.last_name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+        <%= f.email_field :email, value: @current_user.email, class: "form-control" %>
+        </div>
+         <div class="form-group">
+          <%= f.text_area :summary, value: @current_user.summary, placeholder: "Your bio", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :website_one, value: @current_user.website_one, placeholder: "Website", class: "form-control" %>
+        </div>
+         <div class="form-group">
+          <%= f.text_field :website_two, value: @current_user.website_two, placeholder: "Additional Website", class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+        <%= f.label "Upload profile picture" %>
+        <%= f.file_field :image_url, value: @current_user.image_url %>
+        </div>
+        <div class="divider"></div>
+        <div class="form-group">
+          <div class="col-sm-4">
+            <%= f.submit "Save", class: "form-control btn btn-danger span-6" %>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+</div>

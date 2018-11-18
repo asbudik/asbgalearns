@@ -1,0 +1,9 @@
+<h3 class="ga"><span></span>Upcoming at GA</h3>
+
+<ul id="course-container">
+  <% @gaCourses.each do |course| %>
+      <li><a href="https://generalassemb.ly<%=  course["url"] %>"><%=  course["title"] %></a><br><span><%= course["date"]  %></span></li>
+  <% end %>
+</ul>
+
+<a href="https://generalassemb.ly/education?where=san-francisco&format=classes-workshops" class="see-all">See All &raquo;</a>

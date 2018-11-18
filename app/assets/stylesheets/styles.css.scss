@@ -1,0 +1,315 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto+Slab:400,700);
+
+/* Color Scheme */
+
+$white:#FCFCFC;
+$lt-grey: #9D9D9D;
+$md-grey: #6C6C6C;
+$dk-grey: #252626;
+$red: #FF1F1F;
+$black: #0D0D0D;
+
+$box-height: 270px;
+
+$border: 1px solid #ccc;
+
+@mixin container($height) {
+  padding: 0;
+  margin: 0;
+  overflow: scroll;
+  height: $height;
+}
+
+@mixin logo($width){
+  background-size: $width 24px;
+   height: 24px;
+   width: $width;
+   display: inline-block;
+  margin-right: 10px;
+}
+
+
+body {
+  background: url('dark_fish_skin.png') 0 0 repeat;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: $black;
+  font-size: 15px;
+}
+.btn:focus,
+a:focus,
+.btn:active,
+a:active  {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  tap-highlight-color: rgba(0,0,0,0);
+  outline: none;
+}
+a {
+  color: darken( $red, 20% );
+  text-decoration: none;
+  list-style-type: none;
+  &:hover {  color: darken( $red, 10% ); }
+}
+
+.btn-default {
+  border: 1px solid $lt-grey;
+  color: darken($red, 50%);
+}
+
+.header{
+  background-color: $white;
+  border-bottom: 10px solid $lt-grey;
+  margin-bottom: 20px;
+  h1{
+    margin-top: 25px;
+    font-weight: 700;
+    font-size: 45px;
+    font-family: 'Roboto Slab', serif;
+    a {
+    color: darken( $red, 40% );
+    &:hover{
+      text-decoration: none;
+      color: darken($red, 20% );
+    }
+
+    }
+  }
+  .right {
+    float: right;
+    margin: 20px 0 20px 20px;
+    & > div {
+      display: inline-block;
+      vertical-align: top;
+      h4 { margin-top: 0;}
+    }
+  }
+
+}
+.footer {
+  padding: 20px 0;
+  text-align: center;
+  a {
+    color: $white;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+  span{ padding: 0 15px; }
+}
+.box {
+  background-color: $white;
+  height: $box-height;
+  margin-bottom: 40px;
+  padding: 20px;
+  border-radius: 5px;
+  -webkit-box-shadow: 4px 4px 4px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 4px 4px 4px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 4px 4px 4px 0px rgba(50, 50, 50, 0.75);
+  position: relative;
+
+  &.tall { height: ($box-height * 2) + 40; }
+  h2.welcome {
+    margin: 0 0 15px 0;
+  }
+  h3 {
+    margin: 0 0 10px 0;
+    padding: 0 0px 15px 0;
+    border-bottom: $border;
+    a {
+      color: $black;
+      &:hover { color: $red;}
+    }
+    span { vertical-align: middle; }
+    &.header-center{
+      text-align: center;
+      padding-left: 0;
+    }
+  }
+
+}
+.divider{
+  border-top: $border;
+  margin-top: 5px;
+  padding-bottom: 5px;
+}
+/* shoutout */
+
+ul#shoutout_container {
+  @include container(400px);
+  margin-bottom: 10px;
+
+  span {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  li {
+    list-style: none;
+    padding: 10px 0;
+  }
+}
+.shout-hold{
+  border-top: $border;
+  padding: 15px 0;
+}
+
+/* courses */
+
+h3.ga span{
+   background-image: url('general-assembly.png');
+  @include logo(24px);
+}
+ul#course-container {
+  @include container(150px);
+
+  li {
+    padding: 5px 0;
+  }
+}
+
+
+/* bart */
+h3.bart span {
+   background: url('bartlogo.png') 0 0 no-repeat;
+   @include logo(37px);
+}
+
+.see-all {
+  margin: 0 auto;
+  display: block;
+  font-size: 16px;
+  border-top: $border;
+  padding-top: 10px;
+}
+
+ul.bart-container {
+  @include container(125px);
+  li {
+    list-style: none;
+    padding: 7px 0;
+    span {
+      padding: 0 4px;
+    }
+  }
+  strong {
+    padding-right: 10px;
+  }
+}
+
+
+/* soup */
+h3.soup span {
+  background: url('specialtys.png') 0 0 no-repeat;
+   @include logo(24px);
+}
+ul.soup-container {
+  margin: 0;
+  padding: 0;
+  li {
+    list-style: none;
+    text-align: center;
+    padding: 7px 0 10px 0;
+  }
+}
+
+
+
+/* twitter and food trucks */
+h3.twitter, h3.trucks {
+    border-bottom: none;
+    margin-bottom: 5px;
+}
+h3.trucks span {
+  background: url('trucklogo.jpg') 0 0 no-repeat;
+  @include logo(24px);
+}
+
+.galogo {
+  width: 40px;
+  height: 100px;
+  background-image: url('general-assembly.png');
+  background-size: 40px;
+  background-repeat: no-repeat;
+  float: left;
+  margin: 10px;
+}
+.tweet {
+  width: 100%;
+  border-bottom: $border;
+  float: right;
+}
+/*.twittericon {
+  background-image: url('twittericon.png');
+  background-repeat: no-repeat;
+  height: 50px;
+  background-size: 40px;
+}*/
+
+.truckbox {
+  @include container(155px);
+}
+.gloungeicon {
+  width: 40px;
+  height: 100px;
+  background-image: url('glounge.jpeg');
+  background-size: 40px;
+  background-repeat: no-repeat;
+  float: left;
+  margin: 10px;
+}
+
+.tweetbox {
+  @include container(465px);
+}
+.gabox {
+  border: $border;
+  a {
+    color: darken( $red, 20% );
+    text-decoration: none;
+    list-style-type: none;
+    &:hover {  color: darken( $red, 10% ); }
+  }
+}
+
+.twittertitle {
+  color: black;
+  margin-right: 5px;
+}
+
+.handle {
+  color: grey;
+  font-size: 13px;
+}
+.time {
+  color: grey;
+  font-size: 11px;
+  position: relative;
+  top: -5px;
+}
+
+.weather {
+  text-align: center;
+  p { font-size: 18px;}
+  p.temp {
+    font-size: 45px;
+    margin-bottom: 0;
+  }
+}
+.user-center{
+  padding: 20px 0;
+  margin-top: 35px;
+  text-align: center;
+  border-top: $border;
+}
+.tweet {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  padding-right: 8px;
+}
+
+.about-us {
+  p { font-size: 16px;}
+  img{
+    width:100%;
+    margin-bottom:15px;
+    border-radius:5px;
+  }
+}

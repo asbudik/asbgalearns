@@ -1,0 +1,15 @@
+
+<div class="col-sm-8 col-sm-offset-2">
+  <div class="show-all row">
+      <% @users.each do |user| %>
+      <div class="col-sm-3 user-box">
+        <div class="pic-container">
+          <a href="/users/<%= user.id %>">
+            <img class="profile-pic" src="<%= user.image_url %>">
+          </a>
+        </div>
+        <h4><a href="/users/<%= user.id %>"><%= user.first_name %> <%= user.last_name %></a></h4>
+      </div>
+      <% end %>
+  </div>
+</div>

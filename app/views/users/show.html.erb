@@ -1,0 +1,25 @@
+<div class="col-sm-8 col-sm-offset-2">
+
+  <div class="show-user row">
+    <div class="col-sm-4">
+      <div class="pic-container">
+        <img class="profile-pic" src="<%= @user.image_url %>">
+      </div>
+      <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+      <p><%= @user.summary %></p>
+      <a href="mailto:<%= @user.email %>"><span class="glyphicon glyphicon-envelope"></span> Email</a>
+      <br><br>
+      <a href="<%= @user.website_one %>"><%= @user.website_one %></a>
+      <br><br>
+      <a href="<%= @user.website_two %>"><%= @user.website_two %></a>
+      <br>
+      <% if session[:id] != nil %>
+        <a href="/users/<%= @current_user.id %>/edit" class="btn btn-default btn-sm">Edit Your Profile</a>
+      <% end %>
+    </div>
+    <div class="col-sm-8">
+      <%= render partial: "shoutouts/show" %>
+    </div>
+  </div>
+
+</div>

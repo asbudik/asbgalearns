@@ -1,0 +1,43 @@
+<h3 class="bart"><span></span>Montgomery Bart</h3>
+<p class="barttime"><%= @current_time %></p>
+<ul class="bart-container">
+<% if @trains != nil %>
+<% count = 0 %>
+  <% @trains.each do |train| %>
+
+    <li>
+      <strong><%= train['destination']  %>:</strong>
+
+        <% if train['estimate'].kind_of?(Array) %>
+
+        <% train['estimate'].each do |timeBart| %>
+
+          <% if timeBart['minutes'].to_s == "Leaving" %>
+
+          <% else %>
+
+            <span class="hashtime<%=count%>"><%= timeBart['minutes']  %> min</span>
+            <% count += 1 %>
+
+          <% end %>
+
+        <% end %>
+
+      <% else %>
+
+        <% if train['estimate']['minutes'] != "Leaving" %>
+
+          <span class="hashtime<%=count%>"><%= train['estimate']['minutes'] %> min</span>
+        <% count += 1 %>
+
+        <% end %>
+
+      <% end %>
+
+    </li>
+
+<% end %>
+<% end %>
+</ul>
+
+<a href="http://www.bart.gov/stations/mont" class="see-all">See All &raquo;</a>

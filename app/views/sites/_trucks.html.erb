@@ -1,0 +1,11 @@
+
+<h3 class="trucks"><span></span>G Food Truck Lounge</h3>
+
+<div class="gabox">
+<div class="truckbox">
+  <% @foodtruck.each do |tweet| %>
+  <div class="tweet"><p><div class="gloungeicon"></div><a class="twitterlink" href="https://twitter.com/gloungesf"><strong class="twittertitle"> G Food Truck Lounge</strong> </a><span class="handle"> @gloungesf</span><br> <span class="time"><%= tweet.created_at.in_time_zone('Pacific Time (US & Canada)').strftime(" %B %d, %Y %I:%M %p") %></span></br><%= twitter_text(tweet.full_text) %></p></div>
+  <% end %>
+</div>
+</div>
+<a href="http://www.gfoodlounge.com/" class="see-all">Learn More &raquo;</a>

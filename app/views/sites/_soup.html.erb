@@ -1,0 +1,8 @@
+<h3 class="soup"><span></span>Specialty's Soups</h3>
+<ul class="soup-container">
+  <% @soups.each do |soup|  %>
+    <li><%= soup[:name]  %></li>
+  <% end %>
+</ul>
+
+<a href="http://www.specialtys.com/Location.aspx?Store=SF09#TodaysSoups" class="see-all">Read More &raquo;</a>

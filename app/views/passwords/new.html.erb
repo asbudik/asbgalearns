@@ -1,0 +1,30 @@
+<style>
+  .resetpassword {
+    width: 50%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    padding-bottom: 70px;
+    margin-top: 30px;
+    border-radius: 7px;
+  }
+  .emailreset {
+    margin-bottom: 25px;
+  }
+</style>
+
+
+<div class="resetpassword">
+  <h2>Reset Your Password</h2>
+  <br>
+      <%= form_tag passwords_path do %>
+      <div class="form-group emailreset">
+      <%= text_field_tag :email, nil, placeholder: "Enter your email", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+      <%= submit_tag "Reset Password", class: "form-control btn btn-danger"%>
+      </div>
+
+      <% end %>
+</div>

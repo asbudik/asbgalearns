@@ -1,0 +1,29 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Login</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for :user do |f| %>
+        <div class="form-group">
+        <%= f.email_field :email, placeholder: "Enter E-mail", autofocus: true, class: "form-control" %>
+        </div>
+        <div class="form-group">
+        <%= f.password_field :password, placeholder: "Enter Password", class: "form-control" %>
+        </div>
+        <div class="form-group">
+        <%= f.submit "Login", class: "form-control btn btn-danger"%>
+
+        <% end %>
+        </div>
+
+        <a data-dismiss="modal" href data-toggle="modal" data-target="#signupModal">
+          Not a member? Sign up here.
+        </a><br>
+        <a href="passwords/new">Reset Password?</a>
+
+      </div>
+
+    </div>
+  </div>

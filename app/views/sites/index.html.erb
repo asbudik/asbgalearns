@@ -1,0 +1,91 @@
+
+
+<div class="col-sm-10 col-sm-offset-1">
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="box">
+            <!-- Button trigger modal -->
+            <% if session[:id] == nil %>
+              <h2 class="welcome">Welcome to GA Dashboard.</h2>
+              <p>Find out what's going on at 501 Folsom. Sign up for access to shoutouts and other awesome features.</p>
+              <button class="btn btn-default btn-md" data-toggle="modal" data-target="#loginModal">
+                Login
+              </button>
+              <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#signupModal">
+                Signup
+              </button><br>
+
+            <% else %>
+             <%= render partial: "bathroom" %>
+          <% end %>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="box">
+            <%= render partial: "ga" %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 hidden-xs">
+          <div class="box tall">
+            <%= render partial: "twittergasf" %>
+
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="box">
+          <%= render partial: "bart" %>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 hidden-xs">
+              <div class="box">
+                <%= render partial: "trucks" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="col-sm-4">
+      <div class="box tall shoutoutsub">
+        <%= render partial: "shoutouts/new" %>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="box">
+              <%= render partial: "soup" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  <% if session[:id] == nil %>
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <%= render partial: "sessions/new"   %>
+    </div>
+
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <%= render partial: "users/new", :locals => {:user => @user} %>
+    </div>
+
+  <% else %>
+
+  <% end %>
+
+  <!-- Modal -->
+
+</div>

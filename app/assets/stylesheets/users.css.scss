@@ -1,0 +1,144 @@
+$border: 1px solid #ccc;
+
+@mixin icon($size){
+  width: $size;
+  height: $size;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.edit-form,
+.show-user,
+.show-all,
+.about-us {
+  margin-top: 30px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 7px;
+  margin-top: 10px;
+  box-shadow: .5px .5px 4px #191919;
+}
+.show-user .pic-container {
+   @include icon(200px);
+}
+.loggedin .pic-container {
+  @include icon(60px);
+  margin-right: 15px;
+}
+.show-all .pic-container {
+  @include icon(100px);
+  margin: 0 auto;
+}
+.user-center .pic-container {
+  @include icon(40px);
+  float: left;
+}
+.pic-container a {
+  width: 100%;
+  height: 100%;
+}
+.profile-pic.landscape {
+  height: 100%;
+  margin-left: -25%;
+}
+.profile-pic.portrait {
+  width: 100%;
+  margin-top: -10%;
+}
+.show-all .user-box{
+    padding: 20px;
+    text-align: center;
+}
+
+.likebutton {
+  height: 22px;
+  width: 22px;
+  float: right;
+  position: relative;
+  left: -2px;
+  top: -19px
+}
+
+.likenumber {
+  margin-left: 8px;
+  position: relative;
+  top: -18px;
+  float: right;
+}
+
+.singleshout {
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.alreadybutton {
+  height: 26px;
+  width: 26px;
+  background-image: url('greystar.png');
+  background-size: 26px 26px;
+  background-repeat: no-repeat;
+  margin-left: 8px;
+  float: right;
+  position: relative;
+  top: -23px;
+}
+
+.ajaxalreadybutton {
+  height: 26px;
+  width: 26px;
+  background-image: url('greystar.png');
+  background-size: 26px 26px;
+  background-repeat: no-repeat;
+  margin-left: 8px;
+  float: right;
+  position: relative;
+  top: -23px;
+}
+
+.num {
+  float: right;
+  position: relative;
+  top: -28px;
+}
+.userstar {
+  width: 40px;
+  height: 40px;
+  float: right;
+  position: relative;
+  top: -472px;
+  left: 5px;
+  background-image: url('star.png');
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+}
+#notice {
+  font-size: 16px;
+  text-align: center;
+  position: relative;
+  color: #32cd32;
+  float: left;
+  
+}
+#alert {
+  font-size: 16px;
+  float: left;
+  position: relative;
+  color: red;
+}
+.subflash {
+  position: relative;
+  top: 8px;
+  color: #ff4c4c;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px black;
+}
+.flashusers {
+  margin-top: 20px;
+}
+.usershoutouts {
+  float: right;
+  position: relative;
+  top: -470px;
+  font-size: 20px;
+  font-weight: bold;
+}
