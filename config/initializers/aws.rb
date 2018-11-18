@@ -1,6 +1,6 @@
 require 'aws-sdk-s3'
 
-AWS_REGION = 'us-west-1'
+AWS_REGION = 'us-west-2'
 
 S3_CLIENT = Aws::S3::Client.new(
   :region => AWS_REGION,
