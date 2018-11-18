@@ -783,6 +783,9 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.5.0)
     rdoc (4.3.0)
+    responders (2.4.0)
+      actionpack (>= 4.2.0, < 5.3)
+      railties (>= 4.2.0, < 5.3)
     rspec-core (3.0.4)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.4)
@@ -874,6 +877,7 @@ DEPENDENCIES
   rails (= 4.2.10)
   rails_12factor
   rake (< 11.0)
+  responders (~> 2.0)
   rspec-rails (~> 3.0.0)
   rufus-scheduler
   sass-rails (~> 4.0.3)

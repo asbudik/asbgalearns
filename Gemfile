@@ -57,6 +57,8 @@ gem 'crack'
 
 gem 'rake', '< 11.0'
 
+gem 'responders', '~> 2.0'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
