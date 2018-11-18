@@ -37,7 +37,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'dotenv-rails'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'ffaker'
 end
 
@@ -54,6 +54,8 @@ gem 'nokogiri'
 gem 'awesome_print'
 
 gem 'crack'
+
+gem 'rake', '< 11.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'

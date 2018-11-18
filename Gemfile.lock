@@ -685,10 +685,10 @@ GEM
     et-orbi (1.1.6)
       tzinfo
     execjs (2.7.0)
-    factory_girl (4.9.0)
+    factory_bot (4.11.1)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.9.0)
-      factory_girl (~> 4.9.0)
+    factory_bot_rails (4.11.1)
+      factory_bot (~> 4.11.1)
       railties (>= 3.0.0)
     ffaker (2.10.0)
     fugit (1.1.6)
@@ -781,7 +781,7 @@ GEM
       activesupport (= 4.2.10)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (12.3.1)
+    rake (10.5.0)
     rdoc (4.3.0)
     rspec-core (3.0.4)
       rspec-support (~> 3.0.0)
@@ -862,7 +862,7 @@ DEPENDENCIES
   crack
   dino
   dotenv-rails
-  factory_girl_rails
+  factory_bot_rails
   ffaker
   handlebars_assets
   jbuilder (~> 2.0)
@@ -873,6 +873,7 @@ DEPENDENCIES
   pry-rails
   rails (= 4.2.10)
   rails_12factor
+  rake (< 11.0)
   rspec-rails (~> 3.0.0)
   rufus-scheduler
   sass-rails (~> 4.0.3)
