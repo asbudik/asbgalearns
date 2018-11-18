@@ -62,7 +62,7 @@ respond_to :html, :json
   end
 
   def json_weather
-    jsonfile = open('http://api.openweathermap.org/data/2.5/weather?lat=37.786958&lon=-122.394462').read
+    jsonfile = open('http://api.openweathermap.org/data/2.5/weather?lat=37.786958&lon=-122.394462&APPID=83af9702560d192859e957e1e00ed980').read
     @weather = Crack::JSON.parse(jsonfile)
     @tempmath = (((@weather["main"]["temp"] - 273)* 1.8 )+ 32) - 7
     @temp = @tempmath.to_s.split(".")[0]
