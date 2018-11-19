@@ -59,6 +59,8 @@ gem 'rake', '< 11.0'
 
 gem 'responders', '~> 2.0'
 
+ruby "2.4.5"
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
