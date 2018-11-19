@@ -1,3 +1,5 @@
+GA_DASHBOARD_BUCKET = 'gadashboard'
+
 class UsersController < ApplicationController
   def index
     @users = User.all
@@ -6,6 +8,7 @@ class UsersController < ApplicationController
   def new
     # @user = User.find_by_id(session[:id])
   end
+
   def create
     new_user = params.require(:user).permit(
       :first_name,
@@ -20,19 +23,26 @@ class UsersController < ApplicationController
     new_user[:last_name].capitalize!
 
     if !new_file_path.blank?
-      key = Time.now.to_time.to_i
-
-      # TODO: need to update this to reflect new aws-sdk-s3 interface
-      # we just need to overwrite old existing object with this one
+      # NOTE: leaving this here temporarily
       # new_bucket = S3_CLIENT.buckets['gadashboard']
-      # new_object = new_bucket.objects[key.to_s]
-
       # new_object.write(Pathname.new(new_file_path['image_url'].tempfile.path))
 
-      # new_user[:image_url] = new_object.public_url.to_s
+      s3_key = Time.now.to_time.to_i.to_s
+      image_filepath = Pathname.new(new_file_path['image_url'].tempfile.path)
+      new_object = S3_CLIENT.put_object({
+        :bucket => GA_DASHBOARD_BUCKET,
+        :key => s3_key,
+        :body => image_filepath
+      })
+      new_user[:image_url] =
+        "https://#{GA_DASHBOARD_BUCKET}.s3.amazonaws.com/#{s3_key}"
+
     else
-      new_user[:image_url] = 'https://s3-us-west-1.amazonaws.com/gadashboard/profile-1.jpg'
+      new_user[:image_url] =
+        "https://#{GA_DASHBOARD_BUCKET}.s3.amazonaws.com/profile-1.jpg"
+
     end
+
     @user = User.new(new_user)
 
     if @user.save
@@ -87,16 +97,19 @@ class UsersController < ApplicationController
     updated_params[:last_name].capitalize!
 
     if !new_file_path.blank?
-      key = Time.now.to_time.to_i
+      s3_key = Time.now.to_time.to_i.to_s
+      image_filepath = Pathname.new(new_file_path['image_url'].tempfile.path)
+      new_object = S3_CLIENT.put_object({
+        :bucket => GA_DASHBOARD_BUCKET,
+        :key => s3_key,
+        :body => image_filepath
+      })
+      updated_params[:image_url] =
+        "https://#{GA_DASHBOARD_BUCKET}.s3.amazonaws.com/#{s3_key}"
 
-      new_bucket = S3_CLIENT.buckets['gadashboard']
-      new_object = new_bucket.objects[key.to_s]
-
-      new_object.write(Pathname.new(new_file_path['image_url'].tempfile.path))
-
-      updated_params[:image_url] = new_object.public_url.to_s
     else
       updated_params[:image_url] = user.image_url
+
     end
 
     if user.update_attributes(updated_params)
