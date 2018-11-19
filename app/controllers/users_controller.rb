@@ -28,12 +28,14 @@ class UsersController < ApplicationController
       # new_object.write(Pathname.new(new_file_path['image_url'].tempfile.path))
 
       s3_key = Time.now.to_time.to_i.to_s
-      image_filepath = Pathname.new(new_file_path['image_url'].tempfile.path)
-      new_object = S3_CLIENT.put_object({
-        :bucket => GA_DASHBOARD_BUCKET,
-        :key => s3_key,
-        :body => image_filepath
-      })
+      image_filepath = new_file_path['image_url'].tempfile.path
+      File.open(image_filepath, 'rb') do |file|
+        new_object = S3_CLIENT.put_object({
+          :bucket => GA_DASHBOARD_BUCKET,
+          :key => s3_key,
+          :body => file
+        })
+      end
       new_user[:image_url] =
         "https://#{GA_DASHBOARD_BUCKET}.s3.amazonaws.com/#{s3_key}"
 
@@ -98,12 +100,14 @@ class UsersController < ApplicationController
 
     if !new_file_path.blank?
       s3_key = Time.now.to_time.to_i.to_s
-      image_filepath = Pathname.new(new_file_path['image_url'].tempfile.path)
-      new_object = S3_CLIENT.put_object({
-        :bucket => GA_DASHBOARD_BUCKET,
-        :key => s3_key,
-        :body => image_filepath
-      })
+      image_filepath = new_file_path['image_url'].tempfile.path
+      File.open(image_filepath, 'rb') do |file|
+        new_object = S3_CLIENT.put_object({
+          :bucket => GA_DASHBOARD_BUCKET,
+          :key => s3_key,
+          :body => file
+        })
+      end
       updated_params[:image_url] =
         "https://#{GA_DASHBOARD_BUCKET}.s3.amazonaws.com/#{s3_key}"
 
